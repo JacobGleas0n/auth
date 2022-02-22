@@ -6,3 +6,13 @@
 # 1. encrypt a secret and puts encrypted string
 # 2. decrypt the encrypted string
 # 3. check if decrypted value matches secret
+
+secret_password = "tacos"
+encrypted_password = BCrypt::Password.create(secret_password)
+puts encrypted_password
+
+#password_to_test = "tacos" would return true
+password_to_test = "sushi"
+#returns false because sushi isn't equal to the real password
+password_matches = BCrypt::Password.new(encrypted_password) == password_to_test
+puts password_matches
